@@ -1,0 +1,52 @@
+===
+== Polygons/Triangles are disappearing completely when I get close to them! What is going on?
+=
+
+This is an intentional optional feature that can be turned off in the PSFXCamera next to "Triangle Near Clipping" under "PSX Depth"
+
+================
+== Geometry is disappearing before it reaches my camera's far clipping plane
+================
+
+This is another intentional feature that can be negated by setting the "Triangle Culling Distance" to a value at or beyond the far
+clipping plame of your camera (Example: if your camera's far plane is set to 1000, you can set this parameter to 1001)
+
+================
+== What is the purpose of the Fade slider?
+================
+
+Many games for the PS1 implented a fade-to-black fade when transitioning between scenes, areas, and menus. To save on computational
+power and instruction storage space, a subtractive fade would be implemented. PSFX has Subtractive Fade selected by default and
+Chromatic Cascade fade as as stylized version of the aforementioned fading technique, and a normal linear interpolated fade.
+
+The intention is that this fade will be controlled outside the GUI by a script written by a developer, where the GUI slider serves
+as a demonstration of what the fade will look like.
+
+================
+== What does Camera Position Precision do?
+================
+
+Because of the PS1's limiting hardware, the camera was not excempt from the rounding issues that caused the same wobbling effect for
+vertices and geometry. This feature gives the camera a subtle snapping effect to it similar to what Vertex Precision does.
+
+================
+== Can the resolution scale be set to higher than 10? / I want to set the Resolution Scale higher than 10
+================
+
+This can be accomplished in two ways:
+
+1. Set the value manually using an external script
+2. In the PSFXCameraGUI.cs file located in PSFX/Editor, on line 35, you may set the value higher than 10
+
+================
+== I want to achieve a more classic lighting effect, how do I do this? / How do I enable vertex lighting?
+================
+
+Vertex can be enabled in Unity by setting your light to "Not Important" next to "Render Mode". Note do to a limit with Unity, only 4
+vertex lights may be present at a time.
+
+================
+== Nothing here addressed my question/issue
+================
+
+Please contact me at chocobone@outlook.com with a detailed description of your problem/question and I will be happy to help you.

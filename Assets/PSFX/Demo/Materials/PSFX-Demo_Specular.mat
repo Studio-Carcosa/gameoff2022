@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PSFX-Demo_Specular
+  m_Shader: {fileID: 4800000, guid: 68b3c592e3fa8fd4fb4d649260606d49, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - PSFX_REFLECTIONS_OFF
+  - REFELECTIONSNO
+  - REFLECTIONSNO
+  - _PSFX_REFLECTIONS_OFF
+  - _REFLECTIONMODE_OFF
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    FORCENOSHADOWCASTING: False
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: a9eaa078b7be59541874b6537730c1cd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Reflection2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Reflection3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectionMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AffineDistortion: 1
+    - _BlendMode: 0
+    - _BlendModeDst: 0
+    - _BlendModeSrc: 1
+    - _Cull: 2
+    - _CullDist: 60
+    - _Cutoff: 0
+    - _DstBlend: 0
+    - _LightingMode: 2
+    - _OverrideCamera: 0
+    - _PSFXDstBlend: 0
+    - _PSFXSrcBlend: 0
+    - _PSFX_DstBlend: 0
+    - _PSFX_SrcBlend: 0
+    - _PSFX_ZWrite: 0
+    - _Reflection2DRotation: 0
+    - _ReflectionBlendMode: 0
+    - _ReflectionMode: 0
+    - _SpecularGlossiness: 2
+    - _SpecularStrength: 0.104
+    - _SrcBlend: 1
+    - _VertexPrecision: 0.004342857
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0, g: 0.94070315, b: 1, a: 1}
+  m_BuildTextureStacks: []
