@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class BasicEnemy : MonoBehaviour
 {
-    private bool isActive = false;
-    private bool hasAlert = false;
+
+    //Basic statistics
     public float moveSpeed = 10;
-    public GameObject player;
+    public float health = 10;
+
+    //Distance target needs to be before activates
     public float alertDist = 15;
-    public bool isBurst = true;
+
+    //How long between bursts, and how long the burst lasts
     public float burstCooldown = 10;
     public float burstTime = 1;
 
+    //Is the enemy actively chasing the target?
+    private bool isActive = false;
+    private bool hasAlert = false;
+
+    //Target AI will chase
+    public GameObject target;
+    
+    private Rigidbody rb;
     private float curBurstTime;
     private float curBurstCooldown;
-    public Rigidbody rb;
+    private bool isBurst = true;
 
     // Start is called before the first frame update
     void Start()
@@ -23,13 +34,13 @@ public class BasicEnemy : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         curBurstTime = burstTime;
         curBurstCooldown = burstCooldown;
-        player = GameObject.FindWithTag("Player");
+        target = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        float dist = Vector3.Distance(player.transform.position, transform.position);
+        float dist = Vector3.Distance(target.transform.position, transform.position);
 
         if (curBurstTime <= 0) {
             curBurstCooldown = 0;
@@ -53,15 +64,15 @@ public class BasicEnemy : MonoBehaviour
         }
 
         if (isActive) {
-            transform.LookAt(player.transform);
+            transform.LookAt(target.transform);
             if (!hasAlert){
             //Debug.Log("KAISER HAS AWOKEN!!!!!");
             hasAlert = true;
             }
             if (isBurst) {
             //Debug.Log("Bursting Now");
-            //rb.velocity = -player.transform.position * moveSpeed;
-            //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, (moveSpeed * Time.deltaTime));
+            //rb.velocity = -target.transform.position * moveSpeed;
+            //transform.position = Vector3.MoveTowards(transform.position, target.transform.position, (moveSpeed * Time.deltaTime));
             curBurstTime = curBurstTime - Time.deltaTime;
             rb.AddRelativeForce(Vector3.forward * moveSpeed, ForceMode.Force);
             }
