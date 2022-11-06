@@ -4,8 +4,11 @@ using System.Collections;
 public class xfaceobject : MonoBehaviour
 {
 
-    public GameObject camera;
-
+    private GameObject camera;
+    void Start()
+    {
+        camera = GameObject.FindGameObjectWithTag("Player");
+    }
     void Update()
     {
         Vector3 v = camera.transform.position - transform.position;

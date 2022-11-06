@@ -7,7 +7,7 @@ public class BasicEnemy : MonoBehaviour
 
     //Basic statistics
     public float moveSpeed = 10;
-    public float health = 10;
+    public float health = 100;
 
     //Distance target needs to be before activates
     public float alertDist = 15;
@@ -18,7 +18,6 @@ public class BasicEnemy : MonoBehaviour
 
     //Is the enemy actively chasing the target?
     private bool isActive = false;
-    private bool hasAlert = false;
 
     //Target AI will chase
     public GameObject target;
@@ -40,7 +39,13 @@ public class BasicEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //This is a pretty bad state machine, this code needs cleaning
         float dist = Vector3.Distance(target.transform.position, transform.position);
+
+        if (health <= 0){
+            Debug.Log("Kaiser has gone to bed!");
+            Destroy(gameObject);
+        }
 
         if (curBurstTime <= 0) {
             curBurstCooldown = 0;
@@ -60,22 +65,26 @@ public class BasicEnemy : MonoBehaviour
         }
 
         if (dist < alertDist) {
-            isActive = true;
+            Activate();
         }
 
         if (isActive) {
             transform.LookAt(target.transform);
-            if (!hasAlert){
-            //Debug.Log("KAISER HAS AWOKEN!!!!!");
-            hasAlert = true;
-            }
             if (isBurst) {
-            //Debug.Log("Bursting Now");
-            //rb.velocity = -target.transform.position * moveSpeed;
-            //transform.position = Vector3.MoveTowards(transform.position, target.transform.position, (moveSpeed * Time.deltaTime));
             curBurstTime = curBurstTime - Time.deltaTime;
             rb.AddRelativeForce(Vector3.forward * moveSpeed, ForceMode.Force);
             }
+        }
+    }
+    public void Activate(){
+        isActive = true;
+    }
+    void OnCollisionEnter(Collision other){
+        if (other.gameObject.tag == "PlayerBullet"){
+            health = health -20;
+            Activate();
+        } else if (other.gameObject.tag == "Player") {
+            other.gameObject.GetComponent<playerHealth>().Hurt(20);
         }
     }
 }
