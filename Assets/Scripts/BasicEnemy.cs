@@ -56,7 +56,7 @@ public class BasicEnemy : MonoBehaviour
         }
         if (!isBurst){
             if (curBurstCooldown < burstCooldown) {
-                curBurstCooldown = curBurstCooldown + Time.deltaTime;
+                curBurstCooldown += Time.deltaTime;
             }
         }
         if (curBurstCooldown >= burstCooldown) {
