@@ -128,4 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea32c9517da30c242aecb7190463b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4744900658981843754, guid: d5f98c4fcc18b5142b98a1dd109fe2f8, type: 3}
+  bulletPrefab: {fileID: 267636001701295796, guid: 9b5916829febb4145a0717dca4c4c9ee, type: 3}
+  maxShellCount: 2
+  fireSound: {fileID: 0}
+  reloadSound: {fileID: 0}

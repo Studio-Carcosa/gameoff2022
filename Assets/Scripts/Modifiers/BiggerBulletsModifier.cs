@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BiggerBulletsModifier : Modifier
 {
-    public override void ApplyOnProjectile(GameObject foo)
+    public override void ApplyOnProjectile(Projectile p)
     {
-        foo.transform.localScale *= 2;
+        p.transform.localScale *= 2;
     }
 }
