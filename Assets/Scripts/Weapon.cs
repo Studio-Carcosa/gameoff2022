@@ -15,13 +15,32 @@ public class Weapon : MonoBehaviour
     [System.NonSerialized]
     public float shotTimer = 0.0f;
     [System.NonSerialized]
+    public float reloadDelay = 1.0f;
+    [System.NonSerialized]
+    public float reloadTimer = 0.0f;
+    [System.NonSerialized]
     public float recoil = 0.05f;
     [System.NonSerialized]
     public float kickBack; // TODO
+    public int maxShellCount = 2;
+    private int shellCount;
+
+    // Animation properties
+    private Animator anim;
+    int shotgunFire = Animator.StringToHash("shotgunFire");
+    int shotgunReload = Animator.StringToHash("shotgunReload");
+
+    // Sounds
+    private AudioSource audio;
+    public AudioClip fireSound;
+    public AudioClip reloadSound;
 
     void Awake(){
         bulletPort = this.gameObject.transform.GetChild(0);
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        anim = this.GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
+        shellCount = maxShellCount;
     }
 
     void Start(){
@@ -46,12 +65,19 @@ public class Weapon : MonoBehaviour
             foreach(Modifier m in GameManager.Instance.modifiers){
                 m.ApplyAfterShot();
             }
+        }else if(CanReload() && Input.GetKeyDown("r")){
+                Reload();
         }else{
             DecrementshotTimer();
         }
     }
 
     private void Shoot(){
+        // Animate Gun
+        anim.SetTrigger(shotgunFire);
+        // Make sound
+        audio.clip = fireSound;
+        audio.Play();
         // Generate projectiles
         for (int i = 0; i < shotAmount; i++){
             GameObject b = Instantiate(bulletPrefab, bulletPort.position, Quaternion.identity) as GameObject;
@@ -65,6 +91,15 @@ public class Weapon : MonoBehaviour
 
         // Apply default values
         shotTimer = shotDelay;
+        // Reduce ammo count
+        shellCount--;
+    }
+
+    private void Reload(){
+        anim.SetTrigger(shotgunReload);
+        audio.clip = reloadSound;
+        audio.Play();
+        shellCount = 2;
     }
 
     private void DecrementshotTimer(){
@@ -72,7 +107,11 @@ public class Weapon : MonoBehaviour
     }
 
     private bool CanShoot(){
-        return shotTimer <= 0;
+        return shotTimer <= 0 && shellCount > 0;
+    }
+
+    private bool CanReload(){
+        return shellCount <2;
     }
 
     private Vector3 GenerateRecoil(){       
