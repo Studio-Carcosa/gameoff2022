@@ -23,7 +23,7 @@ public abstract class Modifier
     // Applied when shooting, after the projectiles are instantiated
     public virtual void ApplyAfterShot(){}
     // Applies to the projectiles that have been instantiated
-    public virtual void ApplyOnProjectile(GameObject foo){} // TODO replace this with projectile script
+    public virtual void ApplyOnProjectile(Projectile p){} // TODO replace this with projectile script
 
     
     // NOT IMPLEMENTED YET
