@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         }
         //Sprint
         if(Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2))) < maxSpeed * sprintMulti && Input.GetKey(sprintKey)){
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * sprintMulti, ForceMode.Acceleration);
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * sprintSpeedMulti, ForceMode.Acceleration);
             Debug.Log("SPRINTING");
         }
     }
