@@ -13,6 +13,6 @@ public class GitTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // im writing a note here 
     }
 }
