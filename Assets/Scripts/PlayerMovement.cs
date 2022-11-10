@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode sprintKey = KeyCode.LeftShift;
 
     [Header("Ground Check")]
+    //change playerHeight if playercharacter height is changed
     public float playerHeight = 1.4f;
     public LayerMask whatIsGround;
     bool grounded;
@@ -50,6 +51,10 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
 
+        /*  TODO make sound when hitting ground
+        *   
+        *
+        */
         // ground check
         RaycastHit hit;
         grounded = Physics.Raycast(transform.position, -Vector3.up, out hit, playerHeight);
@@ -79,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
 
-        //TODO slow down player when not sprinting, keep velocity when landing
+        //TODO keep velocity when landing or sound when landing for player feedback
 
         //Move player, probably expensive
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
@@ -89,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         //Sprint
         if(Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2))) < maxSpeed * sprintMulti && Input.GetKey(sprintKey)){
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * sprintSpeedMulti, ForceMode.Acceleration);
-            Debug.Log("SPRINTING");
+            //Debug.Log("SPRINTING");
         }
     }
 
