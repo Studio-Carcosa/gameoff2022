@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public GameObject bulletPrefab;
+    public Projectile bulletPrefab;
 
     Transform bulletPort;
     Transform playerTransform;
@@ -81,13 +81,13 @@ public class Weapon : MonoBehaviour
         audio.Play();
         // Generate projectiles
         for (int i = 0; i < shotAmount; i++){
-            GameObject b = Instantiate(bulletPrefab, bulletPort.position, Quaternion.identity) as GameObject;
-                // FIXME: encapsulate in function?
-                // Apply projectile modifiers
-                foreach(Modifier m in GameManager.Instance.modifiers){
-                    m.ApplyOnProjectile(b); // TODO: pass in the projectile script when we have one
-                }
-            b.GetComponent<Rigidbody>().AddForce((Camera.main.transform.forward + GenerateRecoil()) * bulletForce, ForceMode.Impulse);
+            Projectile p = Instantiate(bulletPrefab, bulletPort.position, Quaternion.identity) as Projectile;
+            p.Init((Camera.main.transform.forward + GenerateRecoil()));
+            // FIXME: encapsulate in function?
+            // Apply projectile modifiers
+            foreach(Modifier m in GameManager.Instance.modifiers){
+                m.ApplyOnProjectile(p); // TODO: pass in the projectile script when we have one
+            }
         }
 
         // Apply default values

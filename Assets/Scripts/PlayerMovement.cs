@@ -6,11 +6,14 @@ using TMPro;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed;
+    public float moveSpeed = 15f;
+    public float maxSpeed = 20f;
+    public float sprintMulti = 2f;
+    public float sprintSpeedMulti = 1.5f;
 
     public float groundDrag;
 
-    public float jumpForce;
+    public float jumpForce = 20f;
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
@@ -20,9 +23,11 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode sprintKey = KeyCode.LeftShift;
 
     [Header("Ground Check")]
-    public float playerHeight;
+    //change playerHeight if playercharacter height is changed
+    public float playerHeight = 1.4f;
     public LayerMask whatIsGround;
     bool grounded;
 
@@ -45,26 +50,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
 
-        MyInput();
-        SpeedControl();
+        /*  TODO make sound when hitting ground
+        *   
+        *
+        */
+        // ground check
+        RaycastHit hit;
+        grounded = Physics.Raycast(transform.position, -Vector3.up, out hit, playerHeight);
 
         // handle drag
-        if (grounded)
+        if (grounded){
             rb.drag = groundDrag;
-        else
-            rb.drag = 0;
-    }
+        }
+        else{
+            rb.drag = 0.5f;
+        }
 
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-
-    private void MyInput()
-    {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -79,31 +81,23 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void MovePlayer()
+    private void FixedUpdate()
     {
-        // calculate movement direction
+
+        //TODO keep velocity when landing or sound when landing for player feedback
+
+        //Move player, probably expensive
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-        // on ground
-        if(grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
-        // in air
-        else if(!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-    }
-
-    private void SpeedControl()
-    {
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-        // limit velocity if needed
-        if(flatVel.magnitude > moveSpeed)
-        {
-            Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+        if(Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2))) < maxSpeed && !Input.GetKey(sprintKey)){
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Acceleration);
+        }
+        //Sprint
+        if(Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2))) < maxSpeed * sprintMulti && Input.GetKey(sprintKey)){
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * sprintSpeedMulti, ForceMode.Acceleration);
+            //Debug.Log("SPRINTING");
         }
     }
+
 
     private void Jump()
     {
