@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea32c9517da30c242aecb7190463b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4744900658981843754, guid: d5f98c4fcc18b5142b98a1dd109fe2f8, type: 3}
+  bulletPrefab: {fileID: 5003099823734100240, guid: 9b5916829febb4145a0717dca4c4c9ee, type: 3}
   bulletForce: 200
   maxShellCount: 2
   fireSound: {fileID: 8300000, guid: d1a43bad3483449c583fec34a342d08b, type: 3}
@@ -800,6 +800,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  maxSpeed: 20
+  sprintMulti: 2
+  sprintSpeedMulti: 1.5
   groundDrag: 1
   jumpForce: 20
   jumpCooldown: 1
@@ -807,10 +810,11 @@ MonoBehaviour:
   walkSpeed: 0
   sprintSpeed: 0
   jumpKey: 32
-  playerHeight: 0
+  sprintKey: 304
+  playerHeight: 1.4
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   orientation: {fileID: 1719248638}
 --- !u!4 &641169642
 Transform:

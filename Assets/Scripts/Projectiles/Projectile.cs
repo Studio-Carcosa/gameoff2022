@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [System.NonSerialized]
     public float damage = 20f;
-    [System.NonSerialized]
-    public float speed = 100f;
-    [System.NonSerialized]
+    public float speed = 200f;
     public float scale = 1f;
-    [System.NonSerialized]
     public float lifetime = 1.5f;  
     
     [System.NonSerialized]
