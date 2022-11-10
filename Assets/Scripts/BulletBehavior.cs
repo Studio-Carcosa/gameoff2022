@@ -17,13 +17,13 @@ public class BulletBehavior : MonoBehaviour
     void Update()
     {
        curDecayTime -= Time.deltaTime; 
-       if (curDecayTime <= 0) {
-        Destroy(gameObject);
-       }
+        if (curDecayTime <= 0) {
+         Destroy(gameObject);
+        }
     }
 
     // Make a projectile decay faster if it hits anything, also can be used to make sounds and bullet holes later
     void OnCollisionEnter() {
-        curDecayTime = curDecayTime - 1;
+        curDecayTime = curDecayTime - 0.5f;
     }
 }

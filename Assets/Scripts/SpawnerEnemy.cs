@@ -139,7 +139,7 @@ public class SpawnerEnemy : MonoBehaviour
         curSpawnPause = 0;
         float saveMoveSpeed = moveSpeed;
         while (curSpawnPause < spawnPause){
-            Debug.Log("curSpawnPause = " + curSpawnPause);
+            //Debug.Log("curSpawnPause = " + curSpawnPause);
             curSpawnPause+= Time.deltaTime;
             moveSpeed = 0;
             isActive = false;

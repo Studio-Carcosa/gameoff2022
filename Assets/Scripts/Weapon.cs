@@ -115,7 +115,7 @@ public class Weapon : MonoBehaviour
     }
 
     private bool CanReload(){
-        return shellCount <2;
+        return shellCount <2 && anim.GetCurrentAnimatorStateInfo(0).IsName("ShotgunReady"); //Using animations as locks is not a great idea
     }
 
     private Vector3 GenerateRecoil(){       
