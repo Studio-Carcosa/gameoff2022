@@ -22,6 +22,7 @@ public class Weapon : MonoBehaviour
     public float recoil = 0.05f;
     [System.NonSerialized]
     public float kickBack; // TODO
+    public float bulletForce = 200;
     public int maxShellCount = 2;
     private int shellCount;
 
@@ -86,7 +87,7 @@ public class Weapon : MonoBehaviour
                 foreach(Modifier m in GameManager.Instance.modifiers){
                     m.ApplyOnProjectile(b); // TODO: pass in the projectile script when we have one
                 }
-            b.GetComponent<Rigidbody>().AddForce((Camera.main.transform.forward + GenerateRecoil()) * 100.0f, ForceMode.Impulse);
+            b.GetComponent<Rigidbody>().AddForce((Camera.main.transform.forward + GenerateRecoil()) * bulletForce, ForceMode.Impulse);
         }
 
         // Apply default values
@@ -107,7 +108,10 @@ public class Weapon : MonoBehaviour
     }
 
     private bool CanShoot(){
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("ShotgunReload")){
         return shotTimer <= 0 && shellCount > 0;
+        }
+        else return false;
     }
 
     private bool CanReload(){
