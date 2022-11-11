@@ -23,8 +23,10 @@ public class Weapon : MonoBehaviour
     [System.NonSerialized]
     public float kickBack; // TODO
     public float bulletForce = 200;
+    public int maxAmmo = 100;
     public int maxShellCount = 2;
     private int shellCount;
+    private int curAmmo;
 
     // Animation properties
     private Animator anim;
@@ -45,7 +47,7 @@ public class Weapon : MonoBehaviour
     }
 
     void Start(){
-
+        curAmmo = 30;
     }
 
     void Update(){
@@ -96,11 +98,17 @@ public class Weapon : MonoBehaviour
         shellCount--;
     }
 
+    private void Melee(){
+        //TODO: Make melee
+    }
+
     private void Reload(){
         anim.SetTrigger(shotgunReload);
         audio.clip = reloadSound;
         audio.Play();
         shellCount = 2;
+        curAmmo -= 2; //You always throw out two shells!
+        Debug.Log("Ammo Remaining: " + curAmmo);
     }
 
     private void DecrementshotTimer(){
@@ -115,7 +123,8 @@ public class Weapon : MonoBehaviour
     }
 
     private bool CanReload(){
-        return shellCount <2 && anim.GetCurrentAnimatorStateInfo(0).IsName("ShotgunReady"); //Using animations as locks is not a great idea
+        return shellCount <2 && anim.GetCurrentAnimatorStateInfo(0).IsName("ShotgunReady") &&  curAmmo > 0;
+        //Using animations as locks is not a great idea
     }
 
     private Vector3 GenerateRecoil(){       
