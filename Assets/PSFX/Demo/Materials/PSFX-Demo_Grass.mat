@@ -75,7 +75,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AffineDistortion: 0.064
+    - _AffineDistortion: 0.029
     - _BlendMode: 0
     - _BlendModeDst: 0
     - _BlendModeSrc: 1
