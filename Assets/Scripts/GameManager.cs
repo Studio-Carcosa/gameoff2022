@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager Instance {get {return _instance;}}
     public List<Modifier> modifiers;
+    public int gameLevel;
 
 
     private void Awake(){
