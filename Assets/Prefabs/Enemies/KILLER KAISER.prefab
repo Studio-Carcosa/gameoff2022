@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulty: 1
-  spawnAmountLow: 3
-  spawnAmountHigh: 10
+  spawnAmountLow: 15
+  spawnAmountHigh: 30
 --- !u!1 &5132857379407512787
 GameObject:
   m_ObjectHideFlags: 0
