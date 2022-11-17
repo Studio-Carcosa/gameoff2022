@@ -48,13 +48,7 @@ public class Weapon : MonoBehaviour
 
     }
 
-    void Update(){
-        // FIXME: encapsulate in function?
-        
-        foreach(Modifier m in GameManager.Instance.modifiers){
-            m.Update();
-        }
-        
+    void Update(){      
         if(CanShoot() && Input.GetMouseButton(0)){
             // Apply Pre shot modifiers
             foreach(Modifier m in GameManager.Instance.modifiers){
