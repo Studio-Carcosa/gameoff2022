@@ -1202,9 +1202,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Perk Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6515480839342492276, guid: 1eed5af4feb5aac46883144e13cf8903, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eed5af4feb5aac46883144e13cf8903, type: 3}
