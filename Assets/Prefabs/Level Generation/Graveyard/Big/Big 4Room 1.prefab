@@ -413,7 +413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d193fae1f5e5342008db02d9eb7b9e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoints: []
 --- !u!1 &4481368972995316588
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tags:
   - room
+  - big
   CreatesTags:
   - room
   Exits: {fileID: 3972176487542108480}
