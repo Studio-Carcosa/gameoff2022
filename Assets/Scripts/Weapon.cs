@@ -24,7 +24,7 @@ public class Weapon : MonoBehaviour
     public float kickBack; // TODO
     public float bulletForce = 200;
     public int maxShellCount = 2;
-    private int shellCount;
+    public int shellCount;
 
     // Animation properties
     private Animator anim;
