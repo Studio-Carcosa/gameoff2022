@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance {get {return _instance;}}
     public List<Modifier> modifiers;
     public PerkUI perkUI;
+    public Weapon weapon;
     public int gameLevel = 1; //The level the game is currently at
 
 
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
         perkUI = GameObject.FindGameObjectWithTag("PerkCanvas").GetComponent<PerkUI>();
+        weapon = GameObject.FindObjectOfType<Weapon>();
         playerCameraController = Camera.main.gameObject.GetComponent<CameraController>();
         DisablePerkScreen();
     }
@@ -57,14 +59,18 @@ public class GameManager : MonoBehaviour
     public void EnablePerkScreen(){
         perkUI.gameObject.SetActive(true);
         playerCameraController.enabled = false;
+        weapon.active = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        Time.timeScale = 0;
     }
 
     public void DisablePerkScreen(){
         perkUI.gameObject.SetActive(false);
         playerCameraController.enabled = true;
+        weapon.active = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
     }
 }

@@ -6,6 +6,9 @@ public class Weapon : MonoBehaviour
 {
     public Projectile bulletPrefab;
 
+    [System.NonSerialized]
+    public bool active = true;
+
     Transform bulletPort;
     Transform playerTransform;
     [System.NonSerialized]
@@ -48,7 +51,12 @@ public class Weapon : MonoBehaviour
 
     }
 
-    void Update(){      
+    void Update(){
+        // If the weapon is not active, don't do anything
+        if(!active){
+            return;
+        }
+        
         if(CanShoot() && Input.GetMouseButton(0)){
             // Apply Pre shot modifiers
             foreach(Modifier m in GameManager.Instance.modifiers){
