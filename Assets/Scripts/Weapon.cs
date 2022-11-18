@@ -25,8 +25,12 @@ public class Weapon : MonoBehaviour
     public float bulletForce = 200;
     public int maxAmmo = 100;
     public int maxShellCount = 2;
+<<<<<<< HEAD
     private int shellCount;
     private int curAmmo;
+=======
+    public int shellCount;
+>>>>>>> main
 
     // Animation properties
     private Animator anim;
@@ -52,6 +56,7 @@ public class Weapon : MonoBehaviour
 
     void Update(){
         // FIXME: encapsulate in function?
+        
         foreach(Modifier m in GameManager.Instance.modifiers){
             m.Update();
         }
