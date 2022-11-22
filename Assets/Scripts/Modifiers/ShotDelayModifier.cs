@@ -5,6 +5,11 @@ using UnityEngine;
 public class ShotDelayModifier : Modifier
 {
 
+    public override void Init(Weapon weaponReference){
+        base.Init(weaponReference);
+        name = "Shot Delay Modifier";
+    }
+
     // Update is called once per frame
     public override void Update()
     {

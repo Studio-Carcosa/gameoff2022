@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PerkUI : MonoBehaviour
 {
+
+    public List<PerkButton> perkButtons;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +18,14 @@ public class PerkUI : MonoBehaviour
     {
         
     }
+
+    public void RandPerks(){
+        foreach (PerkButton p in perkButtons){
+            Modifier m = Modifier.RandModifier();
+            m.Init(GameManager.Instance.weapon);
+            p.SetPerk(m);
+        }
+    }
+    
+    
 }

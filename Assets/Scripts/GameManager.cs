@@ -32,14 +32,6 @@ public class GameManager : MonoBehaviour
 
     void Start(){
         modifiers = new List<Modifier>();
-
-        ShotDelayModifier foo = new ShotDelayModifier();
-        foo.Init(FindObjectOfType<Weapon>());
-        modifiers.Add(foo);
-
-        BiggerBulletsModifier bar = new BiggerBulletsModifier();
-        bar.Init(FindObjectOfType<Weapon>());
-        modifiers.Add(bar);
     }
 
     void Update(){
@@ -58,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     public void EnablePerkScreen(){
         perkUI.gameObject.SetActive(true);
+        perkUI.RandPerks();
         playerCameraController.enabled = false;
         weapon.active = false;
         Cursor.visible = true;
@@ -73,4 +66,5 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
     }
+
 }
