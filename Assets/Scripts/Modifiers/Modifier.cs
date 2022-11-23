@@ -1,9 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public abstract class Modifier
 {
+
+    public enum ModifierType{
+        BIGGER_BULLETS,
+        SHOT_AMOUNT,
+        SHOT_DELAY
+    }
+
     #pragma warning disable 0108
     // TODO: Add other references
     public string name;
@@ -37,4 +46,22 @@ public abstract class Modifier
     public virtual void ApplyToEnemyOnSpawn(){}
     // Applies continuously to enemies
     public virtual void ApplyToEnemyContinuous(){} // Is this necessary?
+
+    public static T RandomEnumValue<T>() {
+        var values = Enum.GetValues(typeof(T));
+        int random = UnityEngine.Random.Range(0, values.Length);
+        return (T)values.GetValue(random);
+    }
+
+    public static Modifier RandModifier(){
+        switch(RandomEnumValue<ModifierType>()){
+            case ModifierType.BIGGER_BULLETS:
+                return new BiggerBulletsModifier();
+            case ModifierType.SHOT_AMOUNT:
+                return new ShotAmountModifier();
+            case ModifierType.SHOT_DELAY:
+                return new ShotDelayModifier();
+        }
+        return null;
+    }
 }

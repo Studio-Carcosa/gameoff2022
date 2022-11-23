@@ -693,6 +693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tags:
   - room
+  - big
   CreatesTags:
   - room
   Exits: {fileID: 3972176487542108480}
