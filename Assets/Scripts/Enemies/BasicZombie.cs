@@ -6,7 +6,7 @@ public class BasicZombie : MonoBehaviour
 {
 
     [Header("Movement stats")]
-    public float moveSpeed = 10f;
+    public float moveSpeed = 4f;
     public float health = 10f;
 
     [Header("Alert radius")]
@@ -24,6 +24,8 @@ public class BasicZombie : MonoBehaviour
     *public Sprite defaultZombie;
     *private SpriteRenderer sr;
     */
+
+    //TODO Improve zombie AI so they don't aim to clip through player and instead stop and wind up attacks
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +53,9 @@ public class BasicZombie : MonoBehaviour
         if(Vector3.Distance(target.transform.position, transform.position) < alertDist){Activate();}
 
         if(alerted){
-            rb.AddRelativeForce(-Vector3.forward * moveSpeed, ForceMode.Force);
+            if(Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2))) < moveSpeed){
+                rb.AddRelativeForce(-Vector3.forward * moveSpeed, ForceMode.Force);
+            }
         }
 
     }
