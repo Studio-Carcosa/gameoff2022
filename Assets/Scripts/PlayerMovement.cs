@@ -111,4 +111,8 @@ public class PlayerMovement : MonoBehaviour
     {
         readyToJump = true;
     }
+
+    public void recoilKnockback(float knockback) {
+        rb.AddForce(transform.forward * -knockback, ForceMode.Impulse);
+    }
 }

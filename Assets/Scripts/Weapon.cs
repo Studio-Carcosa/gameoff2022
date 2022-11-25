@@ -5,10 +5,10 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public Projectile bulletPrefab;
+    private GameObject player;
+    private GameObject playerCamera;
 
     Transform bulletPort;
-    Transform playerTransform;
-    [System.NonSerialized]
     public int shotAmount = 20;
     [System.NonSerialized]
     public float shotDelay = 1.0f;
@@ -21,12 +21,11 @@ public class Weapon : MonoBehaviour
     [System.NonSerialized]
     public float recoil = 0.05f;
     [System.NonSerialized]
-    public float kickBack; // TODO
     public float bulletForce = 200;
     public int maxAmmo = 100;
     public int maxShellCount = 2;
-    private int shellCount;
-    private int curAmmo;
+    public int shellCount;
+    public int curAmmo;
 
     // Animation properties
     private Animator anim;
@@ -38,16 +37,22 @@ public class Weapon : MonoBehaviour
     public AudioClip fireSound;
     public AudioClip reloadSound;
 
+    // Camera recoil object
+    public GameObject cameraRecoil;
+    public float playerKnockback = 1;
+
     void Awake(){
         bulletPort = this.gameObject.transform.GetChild(0);
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        anim = this.GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerCamera = player.transform.GetChild(0).gameObject;
+        anim = GetComponentInChildren(typeof(Animator)) as Animator;
         audio = GetComponent<AudioSource>();
         shellCount = maxShellCount;
     }
 
     void Start(){
         curAmmo = 30;
+
     }
 
     void Update(){
@@ -82,6 +87,7 @@ public class Weapon : MonoBehaviour
         // Make sound
         audio.clip = fireSound;
         audio.Play();
+        //player.transform.Rotate(90.0f, 0.0f, 0.0f, Space.Self);   -- no workie
         // Generate projectiles
         for (int i = 0; i < shotAmount; i++){
             Projectile p = Instantiate(bulletPrefab, bulletPort.position, Quaternion.identity) as Projectile;
@@ -91,6 +97,7 @@ public class Weapon : MonoBehaviour
             foreach(Modifier m in GameManager.Instance.modifiers){
                 m.ApplyOnProjectile(p); // TODO: pass in the projectile script when we have one
             }
+            AddRecoil();
         }
 
         // Apply default values
@@ -100,7 +107,7 @@ public class Weapon : MonoBehaviour
     }
 
     private void Melee(){
-        //TODO: Make melee
+        //TODO: Make melee lol
     }
 
     private void Reload(){
@@ -114,6 +121,13 @@ public class Weapon : MonoBehaviour
 
     private void DecrementshotTimer(){
         shotTimer -= Time.deltaTime;
+    }
+
+    private void AddRecoil(){
+        // playerCamera.GetComponent<CameraController>().cameraRecoil(recoilXaxis, recoilRecovery);
+        cameraRecoil.GetComponent<Recoil>().RecoilFire();
+        player.GetComponent<PlayerMovement>().recoilKnockback(playerKnockback);
+
     }
 
     private bool CanShoot(){
