@@ -1,36 +1,38 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float sensX;
-    public float sensY;
-    public Transform orientation;
+    float mouseX;
+    float mouseY;
+
+    public float mouseSensitivity = 800000f;
+
+    public Transform player;
 
     float xRotation;
-    float yRotation;
 
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.fixedDeltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.fixedDeltaTime * sensY;
+        mouseX = Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        mouseY = Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
 
-        yRotation += mouseX;
-
-        xRotation -= mouseY;
+        xRotation -= mouseX;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        //rorate cam and orientation
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, -0f);
+        player.Rotate(Vector3.up * mouseY);
+
     }
 }

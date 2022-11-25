@@ -31,7 +31,7 @@ public class Room : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player" && !isClear) {
-            Debug.Log("Player has entered a room!");
+            //Debug.Log("Player has entered a room!");
             //lock room
             SpawnEnemies();
         }
@@ -40,12 +40,12 @@ public class Room : MonoBehaviour
     void SpawnEnemies() {
         foreach (Enemy enemy in enemyList){
             int amountSpawn = Random.Range(enemy.spawnAmountLow, enemy.spawnAmountHigh);
-            Debug.Log("Amount spawned in this room is " + amountSpawn);
+            //Debug.Log("Amount spawned in this room is " + amountSpawn);
             for(int i = amountSpawn; i > 0; i--) {
-                Debug.Log("First for done");
+                //Debug.Log("First for done");
                 foreach (Transform curSpawn in spawns.spawnPoints) {
                     if (amountSpawn > 0){
-                    Debug.Log("Instantiating Enemy");   
+                    //Debug.Log("Instantiating Enemy");   
                     Instantiate(enemy, curSpawn.position, Quaternion.identity);
                     amountSpawn--;
                     }

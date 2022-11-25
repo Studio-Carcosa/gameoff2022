@@ -9,8 +9,11 @@ public class UIHandler : MonoBehaviour
     public Weapon weapon;
     public Text counterText;
     
+    public void Start() {
+        weapon = GameObject.Find("Shotgun").GetComponent<Weapon>();
+    }
     public void Update()
     {
-       counterText.text =  weapon.shellCount + " / " + weapon.maxShellCount;
+       counterText.text =  weapon.shellCount + " / " + weapon.curAmmo;
     }
 }
