@@ -20,6 +20,8 @@ public class EnemyFlyer : MonoBehaviour
 
     [System.NonSerialized]
     public GameObject target;
+    public Fireball fbPrefab;
+    Transform fbEjector;
     
     bool tooLowFloor;
     bool flyUp;
@@ -60,6 +62,8 @@ public class EnemyFlyer : MonoBehaviour
         fbTimer = Random.Range(fbTimerFloor, fbTimerCeil);
         tooLowFloor = false;
         flyUp = false;
+        fbEjector = this.gameObject.transform.GetChild(0);
+
 
         sr = gameObject.GetComponent<SpriteRenderer>();
         
@@ -162,7 +166,6 @@ public class EnemyFlyer : MonoBehaviour
             else if(fbTimer > 2){
                 fbTimer -= Time.deltaTime;
             }
-            Debug.Log(fbTimer);
         }
         
 
@@ -183,6 +186,7 @@ public class EnemyFlyer : MonoBehaviour
     }
 
     void Fireball(){
-        Debug.Log("FIREBALL!!!1!");
+        Fireball fb = Instantiate(fbPrefab, fbEjector.position, transform.rotation);
+        fb.Init(target); 
     }
 }

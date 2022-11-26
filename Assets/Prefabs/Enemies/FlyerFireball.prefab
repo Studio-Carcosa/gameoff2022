@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7590180130117210785}
   m_Layer: 0
   m_Name: FlyerFireball
-  m_TagString: Untagged
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   lifetime: 1.5
+  target: {fileID: 0}
 --- !u!54 &-5344423471355845794
 Rigidbody:
   m_ObjectHideFlags: 0

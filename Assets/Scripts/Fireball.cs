@@ -5,15 +5,16 @@ using UnityEngine;
 public class Fireball : MonoBehaviour
 {
     [Header("stats")]
-    public float speed = 12f;
-    public float lifetime = 1.5f;  
+    public float speed = 4f;
+    public float lifetime = 10f;  
 
     [System.NonSerialized]
     public Rigidbody rb;
     public GameObject target;
-
+    
     void Awake(){
         rb = GetComponent<Rigidbody>();
+        target =  GameObject.FindWithTag("Player");
     }
 
 
@@ -21,7 +22,9 @@ public class Fireball : MonoBehaviour
     void Start()
     {
         Destroy(this.gameObject, lifetime);
-        target =  GameObject.FindWithTag("Player");
+        Vector3 p = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
+        transform.LookAt(p);
+
     }
 
     // Update is called once per frame
@@ -31,7 +34,14 @@ public class Fireball : MonoBehaviour
         transform.LookAt(p);
     }
     
-    public void Init(){
-        rb.AddForce(-transform.forward * speed, ForceMode.Impulse);
+    public void Init(GameObject player){
+        
+        rb.AddForce(-(transform.position - target.transform.position), ForceMode.Impulse);
+
+        
+    }   
+    
+    void OnCollisionEnter(Collision other){
+        Destroy(this.gameObject);
     }
 }

@@ -8,6 +8,7 @@ public class playerHealth : MonoBehaviour
     public float invulnTime;
 
 
+
     private int curHealth;
     private float curInvulnTime;
     // Start is called before the first frame update
@@ -39,5 +40,11 @@ public class playerHealth : MonoBehaviour
     }
     void playerDeath(){
         Debug.Log("YOU DIED!");
+    }
+
+    void OnCollisionEnter(Collision other){
+        if(other.gameObject.tag == "Fireball"){
+            Hurt(15);
+        }
     }
 }

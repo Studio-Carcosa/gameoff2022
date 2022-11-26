@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2716449534218324703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 293.19, y: 2.045, z: 475.65985}
+  m_LocalPosition: {x: 293.19, y: 2.045, z: 475.514}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6591f43a310b2c78f8272f5609f6b612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flyerFireball: {fileID: 6511306503161224532, guid: 87622ace47e968154af558e96000d2ed, type: 3}
   flySpeed: 10
   sidespeed: 10
   swoopSpeed: 15
@@ -108,6 +107,7 @@ MonoBehaviour:
   flyHeight: 5
   flyUpStrength: 15
   alertRadius: 35
+  fbPrefab: {fileID: 6511306503161224532, guid: 87622ace47e968154af558e96000d2ed, type: 3}
   defaultFlyer: {fileID: 21300000, guid: f967123fe9e6ddb499fe6d7942056f53, type: 3}
   flyerFlap: {fileID: 21300000, guid: 7ab8cd997dd12437aab82b863070a848, type: 3}
   flyerBack: {fileID: 21300000, guid: b8d4b9dc833629d64b7ec1d4349eceac, type: 3}
@@ -168,7 +168,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8853647943169237812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.045, y: -0.01, z: -0.182}
+  m_LocalPosition: {x: 0.045, y: -0.01, z: -0.866}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
