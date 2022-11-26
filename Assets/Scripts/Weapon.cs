@@ -11,9 +11,6 @@ public class Weapon : MonoBehaviour
     [System.NonSerialized]
     public bool active = true;
 
-    [System.NonSerialized]
-    public bool active = true;
-
     Transform bulletPort;
     public int shotAmount = 20;
     [System.NonSerialized]
