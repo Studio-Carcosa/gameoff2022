@@ -7,6 +7,10 @@ public class PerkUI : MonoBehaviour
 
     public List<PerkButton> perkButtons;
 
+    void Awake(){
+        perkButtons = new List<PerkButton>(GetComponentsInChildren<PerkButton>());
+    }
+
     // Start is called before the first frame update
     void Start()
     {
