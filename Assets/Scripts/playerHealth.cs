@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth;
     public float invulnTime;
@@ -34,6 +34,12 @@ public class playerHealth : MonoBehaviour
         curInvulnTime = 0;
         }
     }
+
+    public void FullHeal() {
+        curHealth = maxHealth;
+        Debug.Log("Full Heal, health is now " +curHealth);
+    }
+
     bool canHurt(){
         return curInvulnTime >= invulnTime; 
     }

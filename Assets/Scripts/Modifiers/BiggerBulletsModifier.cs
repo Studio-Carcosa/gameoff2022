@@ -7,11 +7,12 @@ public class BiggerBulletsModifier : Modifier
 
     public override void Init(Weapon weaponReference){
         base.Init(weaponReference);
-        name = "Bigger Bullets Modifier";
+        name = "Mr Big Shot";
+        description = "Bigger Bullets!";
     }
 
     public override void ApplyOnProjectile(Projectile p)
     {
-        p.transform.localScale *= 2;
+        p.transform.localScale *= 40;
     }
 }

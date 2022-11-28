@@ -9,7 +9,8 @@ public class ShotAmountModifier : Modifier
     
     public override void Init(Weapon weaponReference){
         base.Init(weaponReference);
-        name = "Shot Amount Modifier";
+        name = "More Where That Came From";
+        description = "More pellets!";
     }
 
     public override void ApplyOnShot(){

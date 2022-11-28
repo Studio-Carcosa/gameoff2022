@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 7c1acfff5b43e4b13b7e46605a97eb68, type: 3}
-  quote: Taking lives feels so romantics!
+  quote: Taking lives feels so romantic!
   fontSize: 30
+  displayTime: 7

@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
     Transform bulletPort;
     public int shotAmount = 20;
     [System.NonSerialized]
-    public float shotDelay = 1.0f;
+    public float shotDelay = 0.5f;
     [System.NonSerialized]
     public float shotTimer = 0.0f;
     [System.NonSerialized]
@@ -43,6 +43,9 @@ public class Weapon : MonoBehaviour
     // Camera recoil object
     public GameObject cameraRecoil;
     public float playerKnockback = 1;
+
+    // Don't ask
+    private Quaternion quat;
 
     void Awake(){
         bulletPort = this.gameObject.transform.GetChild(0);
@@ -84,6 +87,8 @@ public class Weapon : MonoBehaviour
     }
 
     private void Shoot(){
+        quat = Quaternion.identity;
+        quat *= Quaternion.Euler(Vector3.right * 90);
         // Animate Gun
         anim.SetTrigger(shotgunFire);
         // Make sound
@@ -92,7 +97,7 @@ public class Weapon : MonoBehaviour
         //player.transform.Rotate(90.0f, 0.0f, 0.0f, Space.Self);   -- no workie
         // Generate projectiles
         for (int i = 0; i < shotAmount; i++){
-            Projectile p = Instantiate(bulletPrefab, bulletPort.position, Quaternion.identity) as Projectile;
+            Projectile p = Instantiate(bulletPrefab, bulletPort.position, quat) as Projectile;
             p.Init((Camera.main.transform.forward + GenerateRecoil()));
             // FIXME: encapsulate in function?
             // Apply projectile modifiers

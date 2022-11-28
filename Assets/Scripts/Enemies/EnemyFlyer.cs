@@ -162,7 +162,7 @@ public class EnemyFlyer : MonoBehaviour
             else if(fbTimer > 2){
                 fbTimer -= Time.deltaTime;
             }
-            Debug.Log(fbTimer);
+//            Debug.Log(fbTimer);
         }
         
 

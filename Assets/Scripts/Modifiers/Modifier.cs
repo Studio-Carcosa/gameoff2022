@@ -10,13 +10,17 @@ public abstract class Modifier
     public enum ModifierType{
         BIGGER_BULLETS,
         SHOT_AMOUNT,
-        SHOT_DELAY
+        SHOT_DAMAGE,
+        HEARTSCONTENT,
+        RUN_MODIFIER
     }
 
     #pragma warning disable 0108
     // TODO: Add other references
     public string name;
+    public string description;
     protected Weapon weapon;
+    public Sprite button;
 
     public virtual void Init(Weapon weaponReference){
         weapon = weaponReference;
@@ -59,8 +63,12 @@ public abstract class Modifier
                 return new BiggerBulletsModifier();
             case ModifierType.SHOT_AMOUNT:
                 return new ShotAmountModifier();
-            case ModifierType.SHOT_DELAY:
-                return new ShotDelayModifier();
+            case ModifierType.SHOT_DAMAGE:
+                return new ShotDamageModifier();
+            case ModifierType.HEARTSCONTENT:
+                return new HeartsContentModifier();
+            case ModifierType.RUN_MODIFIER:
+                return new RunModifier();                
         }
         return null;
     }

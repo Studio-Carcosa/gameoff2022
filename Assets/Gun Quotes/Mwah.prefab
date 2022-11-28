@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 0f0a4892c0a9e4ddfa8c7b0982bcb657, type: 3}
   quote: Mwah!
-  fontSize: 100
+  fontSize: 90
   displayTime: 4

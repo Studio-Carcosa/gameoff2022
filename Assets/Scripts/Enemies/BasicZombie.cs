@@ -66,7 +66,7 @@ public class BasicZombie : MonoBehaviour
             Activate();
             //SpawnEnemy(enemy);
         } else if (other.gameObject.tag == "Player") {
-            other.gameObject.GetComponent<playerHealth>().Hurt(40);
+            other.gameObject.GetComponent<PlayerHealth>().Hurt(40);
         }
     }
 
