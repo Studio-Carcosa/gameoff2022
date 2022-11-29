@@ -6,6 +6,8 @@ using UnityEngine;
 public class EnemySummoner : MonoBehaviour
 {
 
+
+    //TODO make this mess actually readable
     [Header("stats")]
     public float health = 2000f;
     public float moveSpeed = 14f;

@@ -9,21 +9,23 @@ public class BasicZombie : MonoBehaviour
     public float moveSpeed = 4f;
     public float health = 10f;
 
+    [Header("Attack stats")]
+    public static float attackTimer = 1.0f;
+    private float attTim = attackTimer;
+
     [Header("Alert radius")]
     public float alertDist = 15f;
 
     [System.NonSerialized]
     public GameObject target;
-
+    Transform attReference;
+    
+    public ZombieAttack att;
     private Rigidbody rb;
     private bool alerted;
+    private bool canAttack = false;
 
-    /*      ENABLE WHEN WE HAVE SPRITES
-    *
-    *
-    *public Sprite defaultZombie;
-    *private SpriteRenderer sr;
-    */
+
 
     //TODO Improve zombie AI so they don't aim to clip through player and instead stop and wind up attacks
 
@@ -33,9 +35,8 @@ public class BasicZombie : MonoBehaviour
 
         target = GameObject.FindWithTag("Player");
         rb = this.GetComponent<Rigidbody>();
-        /*      ENABLE WHEN WE HAVE SPRITES
-        //sr = this.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
-        */
+        attReference = this.gameObject.transform.GetChild(0);
+
 
     }
 
@@ -53,9 +54,27 @@ public class BasicZombie : MonoBehaviour
         if(Vector3.Distance(target.transform.position, transform.position) < alertDist){Activate();}
 
         if(alerted){
-            if(Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2))) < moveSpeed){
+            if(Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2))) < moveSpeed && Vector3.Distance(target.transform.position, transform.position) > 1.5f){
                 rb.AddRelativeForce(-Vector3.forward * moveSpeed, ForceMode.Force);
+                canAttack = false;
             }
+            else if(Vector3.Distance(target.transform.position, transform.position) < 1.5f){
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                canAttack = true;
+            }
+        }
+
+        if(canAttack){
+            if(attTim < 0){
+                Attack();
+                attTim = attackTimer;
+            }
+            else {
+                attTim -= Time.deltaTime;
+            }
+        }
+        else {
+            attTim = attackTimer;
         }
 
     }
@@ -64,10 +83,12 @@ public class BasicZombie : MonoBehaviour
         if (other.gameObject.tag == "PlayerBullet"){
             health = health -20;
             Activate();
-            //SpawnEnemy(enemy);
-        } else if (other.gameObject.tag == "Player") {
-            other.gameObject.GetComponent<playerHealth>().Hurt(40);
-        }
+        } 
+    }
+
+    void Attack(){
+        ZombieAttack a = Instantiate(att, attReference.position, transform.rotation);
+        a.Init(target);
     }
 
     //enable enemy
