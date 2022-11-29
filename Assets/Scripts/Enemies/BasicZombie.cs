@@ -71,7 +71,7 @@ public class BasicZombie : MonoBehaviour
     }
 
     //enable enemy
-    void Activate(){
+    public void Activate(){
         alerted = true;
     }
 }
