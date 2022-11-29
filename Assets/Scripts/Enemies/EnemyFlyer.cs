@@ -7,8 +7,8 @@ public class EnemyFlyer : MonoBehaviour
     
     [Header("stats")]
     public float flySpeed = 10f;
-    public float sidespeed = 10f;
-    public float swoopSpeed = 15f;
+    //public float sidespeed = 10f; //TODO add strafe around player when attacking
+    //public float swoopSpeed = 15f;
     public float health = 20f;
     public float flyHeight = 5f;
     public float flyUpStrength = 10f;
@@ -44,7 +44,7 @@ public class EnemyFlyer : MonoBehaviour
     private bool spriteIsFlap = false;
     private float flapTimer = flapAnimTimer;
 
-    private bool swooping = false;
+    //private bool swooping = false;
 
     [Header("fireball stats")]
     public float fbTimerFloor = 5f;
@@ -107,8 +107,8 @@ public class EnemyFlyer : MonoBehaviour
         }
         
         
-        //TODO add back of sprite when flying away from player
         //Animate flapping
+        touchedGrass = Physics.Raycast(transform.position, -transform.up, out hit, 0.5f);
         if(touchedGrass){
             flapTimer -= Time.deltaTime;
             if(spriteIsFlap){
@@ -181,11 +181,12 @@ public class EnemyFlyer : MonoBehaviour
         }
     }
 
-    void Activate(){
+    public void Activate(){
         alerted = true;
     }
 
     void Fireball(){
+        //throw fireball at player
         Fireball fb = Instantiate(fbPrefab, fbEjector.position, transform.rotation);
         fb.Init(target); 
     }
