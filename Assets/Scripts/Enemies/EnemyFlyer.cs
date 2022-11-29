@@ -7,8 +7,8 @@ public class EnemyFlyer : MonoBehaviour
     
     [Header("stats")]
     public float flySpeed = 10f;
-    public float sidespeed = 10f;
-    public float swoopSpeed = 15f;
+    //public float sidespeed = 10f; //TODO add strafe around player when attacking
+    //public float swoopSpeed = 15f;
     public float health = 20f;
     public float flyHeight = 5f;
     public float flyUpStrength = 10f;
@@ -20,6 +20,8 @@ public class EnemyFlyer : MonoBehaviour
 
     [System.NonSerialized]
     public GameObject target;
+    public Fireball fbPrefab;
+    Transform fbEjector;
     
     bool tooLowFloor;
     bool flyUp;
@@ -42,7 +44,7 @@ public class EnemyFlyer : MonoBehaviour
     private bool spriteIsFlap = false;
     private float flapTimer = flapAnimTimer;
 
-    private bool swooping = false;
+    //private bool swooping = false;
 
     [Header("fireball stats")]
     public float fbTimerFloor = 5f;
@@ -60,6 +62,8 @@ public class EnemyFlyer : MonoBehaviour
         fbTimer = Random.Range(fbTimerFloor, fbTimerCeil);
         tooLowFloor = false;
         flyUp = false;
+        fbEjector = this.gameObject.transform.GetChild(0);
+
 
         sr = gameObject.GetComponent<SpriteRenderer>();
         
@@ -103,8 +107,8 @@ public class EnemyFlyer : MonoBehaviour
         }
         
         
-        //TODO add back of sprite when flying away from player
         //Animate flapping
+        touchedGrass = Physics.Raycast(transform.position, -transform.up, out hit, 0.5f);
         if(touchedGrass){
             flapTimer -= Time.deltaTime;
             if(spriteIsFlap){
@@ -162,7 +166,6 @@ public class EnemyFlyer : MonoBehaviour
             else if(fbTimer > 2){
                 fbTimer -= Time.deltaTime;
             }
-//            Debug.Log(fbTimer);
         }
         
 
@@ -178,11 +181,21 @@ public class EnemyFlyer : MonoBehaviour
         }
     }
 
-    void Activate(){
+    public void Activate(){
         alerted = true;
     }
 
+    /* TODO add initial spawn spiral animation when spawned by summoner enemy
+    *
+    *
+    public void Init(){
+
+    }
+    */
+
     void Fireball(){
-        Debug.Log("FIREBALL!!!1!");
+        //throw fireball at player
+        Fireball fb = Instantiate(fbPrefab, fbEjector.position, transform.rotation);
+        fb.Init(target); 
     }
 }
