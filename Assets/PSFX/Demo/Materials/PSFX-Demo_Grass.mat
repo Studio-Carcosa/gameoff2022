@@ -113,7 +113,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _VertexLit: 0
-    - _VertexPrecision: 0.0071714283
+    - _VertexPrecision: 0.00009999983
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
