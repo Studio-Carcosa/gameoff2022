@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2979481301274980375}
   - component: {fileID: 5289895204026271703}
   - component: {fileID: -336195595643549366}
-  - component: {fileID: 5124959810244351652}
   - component: {fileID: 7780654678154820396}
   - component: {fileID: 1066951833706297043}
   - component: {fileID: 3117500103814460790}
@@ -31,14 +30,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4744900658981843754}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0041, y: 1.68, z: 0}
-  m_LocalScale: {x: 0.042976033, y: 0.042976033, z: 0.042976033}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.0041, y: 1.68, z: 5.0314264e-10}
+  m_LocalScale: {x: 0.01193597, y: 0.01916946, z: 0.042976033}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &2979481301274980375
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -105,19 +104,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &5124959810244351652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4744900658981843754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 836a1e5e1cc2f4fba9e4024381e215f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  decayTime: 3
 --- !u!108 &7780654678154820396
 Light:
   m_ObjectHideFlags: 0
@@ -313,3 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7190c3c2887ee04aa4bf45212bf0680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 20
+  speed: 200
+  scale: 1
+  lifetime: 1.5

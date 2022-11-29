@@ -185,6 +185,14 @@ public class EnemyFlyer : MonoBehaviour
         alerted = true;
     }
 
+    /* TODO add initial spawn spiral animation when spawned by summoner enemy
+    *
+    *
+    public void Init(){
+
+    }
+    */
+
     void Fireball(){
         //throw fireball at player
         Fireball fb = Instantiate(fbPrefab, fbEjector.position, transform.rotation);

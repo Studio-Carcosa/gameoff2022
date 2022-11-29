@@ -84,7 +84,7 @@ public class BasicEnemy : MonoBehaviour
             health = health -20;
             Activate();
         } else if (other.gameObject.tag == "Player") {
-            other.gameObject.GetComponent<playerHealth>().Hurt(20);
+            other.gameObject.GetComponent<PlayerHealth>().Hurt(20);
         }
     }
 }

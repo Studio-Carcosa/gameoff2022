@@ -9,8 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: PSFX-Demo_Grass
   m_Shader: {fileID: 4800000, guid: 68b3c592e3fa8fd4fb4d649260606d49, type: 3}
-  m_ShaderKeywords: PSFX_REFLECTIONS_OFF REFELECTIONSNO REFLECTIONSNO _PSFX_OPAQUE
-    _PSFX_REFLECTIONS_OFF _REFLECTIONMODE_OFF
+  m_ShaderKeywords: _ALPHATEST_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -73,9 +72,13 @@ Material:
         m_Texture: {fileID: 2800000, guid: fcd84222c18506644a0e7877b50cda74, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TerrainHolesTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AffineDistortion: 0.029
+    - _AffineDistortion: 0
     - _BlendMode: 0
     - _BlendModeDst: 0
     - _BlendModeSrc: 1
@@ -110,7 +113,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _VertexLit: 0
-    - _VertexPrecision: 0.004342857
+    - _VertexPrecision: 0.00009999983
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
