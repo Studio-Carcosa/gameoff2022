@@ -19,6 +19,6 @@ public class ShotAmountModifier : Modifier
     }
 
     public override void ApplyAfterShot(){
-         weapon.shotAmount = startingShotAmount;
+         weapon.shotAmount = (int) (weapon.shotAmount / 1.5f);
     }
 }
