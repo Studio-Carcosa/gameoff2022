@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GunQuoteManager : MonoBehaviour
 {
+    public Quote deathQuote;
     public Quote[] quotes;
     private AudioSource source;
     private Text UItext;
@@ -42,5 +43,10 @@ public class GunQuoteManager : MonoBehaviour
         UItext.fontSize = quotes[random].fontSize;
         source.clip = quotes[random].clip;
         source.Play();
+    }
+
+    void DieQuote() {
+        UItext.fontSize = 40;
+        UItext.text = deathQuote;
     }
 }

@@ -6,17 +6,17 @@ using UnityEngine.UI; // Don't forget this line
 
 public class UIHandler : MonoBehaviour
 {
-    public Weapon weapon;
+    public PlayerHealth health;
     public Text counterText;
     
     private void Awake(){
     DontDestroyOnLoad(this.gameObject);
     }
     public void Start() {
-        weapon = GameObject.Find("Shotgun").GetComponent<Weapon>();
+        health = GameObject.FindWithTag("Player").GetComponent<PlayerHealth>();
     }
     public void Update()
     {
-       counterText.text =  weapon.shellCount + " / " + weapon.curAmmo;
+       counterText.text =  health.curHealth;
     }
 }
