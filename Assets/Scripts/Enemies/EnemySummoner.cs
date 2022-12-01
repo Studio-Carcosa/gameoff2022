@@ -26,6 +26,7 @@ public class EnemySummoner : MonoBehaviour
     public static float zombMaxTimer = 10f;
     public int zombMaxSpawns = 7;
     private float zombTimer;
+    Transform fbEjector;
 
 
     [Header("sprite timer stats")]
@@ -63,9 +64,12 @@ public class EnemySummoner : MonoBehaviour
     [System.NonSerialized]
     public SpriteRenderer sr;
 
-    private AudioSource ac;
-    public AudioClip death;
+    public GameObject deathObject;
+
+    public GameObject expOrb;
+    public int expDrop = 5;
     public AudioClip sumSound;
+    public AudioSource ac;
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +82,8 @@ public class EnemySummoner : MonoBehaviour
         canSumFlyers = true;
         canSumZombs = true;
         zombTimer = Random.Range(zombMinTimer, zombMaxTimer);
+        ac = gameObject.GetComponent<AudioSource>();
+        fbEjector = this.gameObject.transform.GetChild(0);
 
     }
 
@@ -143,6 +149,7 @@ public class EnemySummoner : MonoBehaviour
             if(!summoned){
                 Summon();
                 ac.clip = sumSound;
+                ac.Play();
                 summoned = true;
                 sr.sprite = summoningSummoner;
             }
@@ -162,8 +169,7 @@ public class EnemySummoner : MonoBehaviour
 
         //delete if no health
         if(health < 0){
-            Destroy(gameObject);
-            ac.clip = death;
+            Die();
             }
         
         //check if in alert radius
@@ -251,5 +257,13 @@ public class EnemySummoner : MonoBehaviour
             health = health -20;
             Activate();
         }
+    }
+
+        public void Die() {
+        for (int i = 0; i < expDrop; i++){
+        Instantiate(expOrb, gameObject.transform);
+        }
+        Instantiate(deathObject, fbEjector.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

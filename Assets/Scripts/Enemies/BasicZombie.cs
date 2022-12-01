@@ -23,12 +23,14 @@ public class BasicZombie : MonoBehaviour
     public ZombieAttack att;
     private Rigidbody rb;
     private bool alerted;
+    Transform fbEjector;
     private bool canAttack = false;
     public int expDrop = 1;
     public GameObject expOrb;
 
-    private AudioSource ac;
-    public AudioClip death;
+
+        public GameObject deathObject;
+    
 
 
     //TODO Improve zombie AI so they don't aim to clip through player and instead stop and wind up attacks
@@ -40,8 +42,8 @@ public class BasicZombie : MonoBehaviour
         target = GameObject.FindWithTag("Player");
         rb = this.GetComponent<Rigidbody>();
         attReference = this.gameObject.transform.GetChild(0);
-
-
+        //ac = gameObject.GetComponent<AudioSource>();
+        fbEjector = this.gameObject.transform.GetChild(0);
     }
 
     // Update is called once per frame
@@ -103,9 +105,8 @@ public class BasicZombie : MonoBehaviour
     public void Die() {
         for (int i = 0; i < expDrop; i++){
         Instantiate(expOrb, gameObject.transform);
-        
         }
-        ac.clip = death;
+        Instantiate(deathObject, fbEjector.position, transform.rotation);
         Destroy(gameObject);
     }
 }

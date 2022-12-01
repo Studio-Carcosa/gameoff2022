@@ -7,13 +7,15 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth;
     public float invulnTime;
 
-
+    public GameManager GM;
 
     public int curHealth;
     private float curInvulnTime;
+    private bool isDying = false;
     // Start is called before the first frame update
     void Start()
     {
+        GM = GameManager.Instance;
         curHealth = maxHealth;
         curInvulnTime = invulnTime;
     }
@@ -22,7 +24,10 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         if(curHealth <= 0){
+            if (!isDying){
+            isDying = true;
             playerDeath();
+            }
         } else if (curInvulnTime < invulnTime) {
             curInvulnTime += Time.deltaTime;
             Debug.Log("Health is" + curHealth + " Current cooldown is " + curInvulnTime);
@@ -54,6 +59,14 @@ public class PlayerHealth : MonoBehaviour
     }
     void playerDeath(){
         Debug.Log("YOU DIED!");
+        GM.GetComponent<GunQuoteManager>().DieQuote();
+        Debug.Log("Dying");
+        StartCoroutine(waiter());
+    }
+
+    IEnumerator waiter() {
+        yield return new WaitForSeconds(7);
+        GM.Restart();
     }
 
     void OnCollisionEnter(Collision other){

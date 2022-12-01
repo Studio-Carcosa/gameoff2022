@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // README:
 // Access the instance and its properties through GameManager.Instance
@@ -67,5 +68,14 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
     }
+    
+    public void Restart() {
+         foreach (GameObject o in Object.FindObjectsOfType<GameObject>()) {
+            if (o.name != "GameManager"){
+             Destroy(o);
+            }
+         }
+         SceneManager.LoadScene("Death");
+     }
 
 }

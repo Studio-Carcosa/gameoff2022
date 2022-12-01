@@ -45,8 +45,12 @@ public class GunQuoteManager : MonoBehaviour
         source.Play();
     }
 
-    void DieQuote() {
+    public void DieQuote() {
+        Debug.Log("Actually dying");
+        curTimer = 0;
         UItext.fontSize = 40;
         UItext.text = deathQuote.quote;
+        source.clip = deathQuote.clip;
+        source.Play();
     }
 }
