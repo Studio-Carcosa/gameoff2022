@@ -55,9 +55,10 @@ public class EnemySummoner : MonoBehaviour
     private bool sumFlyers, canSumFlyers;
 
     public Sprite defaultSummoner;
-    public Sprite defaultSummonerStep;
-    public Sprite fleeingSummoner;
-    public Sprite fleeingSummonerStep;
+    public Sprite alertedSummoner;
+    //public Sprite defaultSummonerStep;
+    //public Sprite fleeingSummoner;
+    //public Sprite fleeingSummonerStep;
     public Sprite summoningSummoner;
     [System.NonSerialized]
     public SpriteRenderer sr;
@@ -84,7 +85,7 @@ public class EnemySummoner : MonoBehaviour
         if(flyers.Count == 0){sumFlyers = false;}
         if(zombs.Count < zombMaxSpawns){sumZombies = false;}
         else{sumZombies = true;}
-        if(!sumZombies || (!sumFlyers && canSumFlyers)){summoning = true;}
+        if(!sumFlyers && canSumFlyers){summoning = true;}
 
         if(!sumFlyers){
             flyerTimer -= Time.deltaTime;
@@ -107,7 +108,7 @@ public class EnemySummoner : MonoBehaviour
         transform.LookAt(p);
         transform.forward = -transform.forward;
 
-        bool fleeing = false;
+        //bool fleeing = false;
 
 
             //TODO add idle animations when not alerted
@@ -118,18 +119,18 @@ public class EnemySummoner : MonoBehaviour
             if(Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2))) < moveSpeed){
                 if(Vector3.Distance(target.transform.position, transform.position) > alertRadius - 20f){
                     rb.AddForce(-transform.forward * moveSpeed, ForceMode.Force);
-                    fleeing = false;
+                    //fleeing = false;
                 } else if(Vector3.Distance(target.transform.position, transform.position) < alertRadius - 40f){
                     rb.AddForce(transform.forward * moveSpeed, ForceMode.Force);
-                    fleeing = true;
+                    //fleeing = true;
                 }
             }
         }
 
         //handle detect movement for sprite animation
-        if(Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2))) > 0.1 && !summoning){
+        /*if(Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2))) > 0.1 && !summoning){
             Animate(fleeing);
-        }
+        }*/
 
 
 
@@ -138,6 +139,7 @@ public class EnemySummoner : MonoBehaviour
             if(!summoned){
                 Summon();
                 summoned = true;
+                sr.sprite = summoningSummoner;
             }
             else if(sumTimer >= 0){
                 //freeze summoner in place
@@ -149,6 +151,7 @@ public class EnemySummoner : MonoBehaviour
                 sumTimer = summonAnimTimer;
                 summoning = false;
                 summoned = false;
+                sr.sprite = alertedSummoner;
             }
         }
 
@@ -156,11 +159,16 @@ public class EnemySummoner : MonoBehaviour
         if(health < 0){Destroy(gameObject);}
         
         //check if in alert radius
-        if(Vector3.Distance(target.transform.position, transform.position) < alertRadius){Activate();}
+        if(Vector3.Distance(target.transform.position, transform.position) < alertRadius && !alerted){Activate();}
+
+        if(!sumZombies && canSumZombs){
+            SummonZombies();
+        }
     }
 
     void Activate(){
         alerted = true;
+        sr.sprite = alertedSummoner;
     }
 
     //summon x amount of flyer minions
@@ -196,20 +204,20 @@ public class EnemySummoner : MonoBehaviour
             else if(canSumFlyers){
                 SummonFlyers(Random.Range(flyerMinSpawn, flyerMaxSpawn));
             }
-        }*/
+        }
         if(!sumZombies && canSumZombs){
             SummonZombies();
         }
-        else if(!sumFlyers && canSumFlyers){
+        else */if(!sumFlyers && canSumFlyers){
             SummonFlyers(Random.Range(flyerMinSpawn, flyerMaxSpawn));
         }
     }
 
     //handle sprite animations
-    void Animate(bool flee){
+    /*void Animate(bool flee){
         stepTimer -= Time.deltaTime;
         if(!flee){
-            if(stepTimer < 0 && sr.sprite != defaultSummonerStep){
+            /*if(stepTimer < 0 && sr.sprite != defaultSummonerStep){
                 stepTimer = stepAnimTimer;
                 sr.sprite = defaultSummonerStep;
             }
@@ -228,7 +236,7 @@ public class EnemySummoner : MonoBehaviour
                 sr.sprite = fleeingSummoner;
             }
         }
-    }
+    }*/
 
     void OnCollisionEnter(Collision other){
         if (other.gameObject.tag == "PlayerBullet"){
