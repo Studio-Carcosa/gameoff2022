@@ -210,7 +210,7 @@ public class EnemyFlyer : MonoBehaviour
 
         public void Die() {
         for (int i = 0; i < expDrop; i++){
-        Instantiate(expOrb, gameObject.transform);
+        Instantiate(expOrb, fbEjector.position, transform.rotation);
         }
         Instantiate(deathObject, fbEjector.position, transform.rotation);
         Destroy(gameObject);
