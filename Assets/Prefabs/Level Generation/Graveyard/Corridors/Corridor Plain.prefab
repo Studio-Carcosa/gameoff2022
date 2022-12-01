@@ -419,7 +419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5681429858322444628}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.4, z: 50}
+  m_LocalPosition: {x: 0, y: -0.6, z: 50}
   m_LocalScale: {x: 20, y: 1, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -652,7 +652,7 @@ MonoBehaviour:
   - room
   Exits: {fileID: 3972176487542108480}
   Bounds: {fileID: 7097729182670136360}
-  DeadEndChance: 1
+  DeadEndChance: 0
 --- !u!65 &6186180891588218085
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -682,6 +682,8 @@ MonoBehaviour:
   enemyList:
   - {fileID: 6655789846930054427, guid: f60877bdca2354d8f992d89653fccb5e, type: 3}
   spawns: {fileID: 637800888753305392}
+  spawnAmountLow: 0
+  spawnAmountHigh: 2
 --- !u!1 &7557090495401848996
 GameObject:
   m_ObjectHideFlags: 0

@@ -920,12 +920,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tags:
   - room
-  - big
   CreatesTags:
   - room
+  - exitcorridor
   Exits: {fileID: 3972176487542108480}
   Bounds: {fileID: 7097729182670136360}
-  DeadEndChance: 1
+  DeadEndChance: 0
 --- !u!65 &6186180891588218085
 BoxCollider:
   m_ObjectHideFlags: 0
