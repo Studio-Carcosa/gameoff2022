@@ -7,10 +7,12 @@ public class Experience : MonoBehaviour
     public int curExp;
     public int nextLevel;
     public GameManager GM;
+    public Weapon gun;
     // Start is called before the first frame update
     void Start()
     {
         GM = GameManager.Instance;
+        gun = GameObject.FindWithTag("Player").GetComponentInChildren<Weapon>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class Experience : MonoBehaviour
 
     void LevelUp() {
         curExp -= nextLevel;
+        gun.curAmmo = gun.maxAmmo;
         nextLevel = (nextLevel + (nextLevel /2));
         GM.EnablePerkScreen();
     }

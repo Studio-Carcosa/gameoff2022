@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour
     public float recoil = 0.05f;
     [System.NonSerialized]
     public float bulletForce = 200;
-    public int maxAmmo = 100;
+    public int maxAmmo = 4000;
     public int maxShellCount = 2;
     public int shellCount;
     public int curAmmo;
@@ -57,7 +57,7 @@ public class Weapon : MonoBehaviour
     }
 
     void Start(){
-        curAmmo = 30;
+        curAmmo = maxAmmo;
 
     }
 
