@@ -27,6 +27,8 @@ public class BasicZombie : MonoBehaviour
     public int expDrop = 1;
     public GameObject expOrb;
 
+    private AudioSource ac;
+    public AudioClip death;
 
 
     //TODO Improve zombie AI so they don't aim to clip through player and instead stop and wind up attacks
@@ -103,6 +105,7 @@ public class BasicZombie : MonoBehaviour
         Instantiate(expOrb, gameObject.transform);
         
         }
+        ac.clip = death;
         Destroy(gameObject);
     }
 }

@@ -37,6 +37,9 @@ public class EnemyFlyer : MonoBehaviour
     public Sprite flyerBackFlap;
     public SpriteRenderer sr;
 
+    private AudioSource ac;
+    public AudioClip batSound;
+
     
     
 
@@ -50,9 +53,7 @@ public class EnemyFlyer : MonoBehaviour
     public float fbTimerFloor = 5f;
     public float fbTimerCeil = 10f;
     private float fbTimer;
-    
-    public int expDrop = 2;
-    public GameObject expOrb;
+
 
 
     // Start is called before the first frame update
@@ -149,7 +150,7 @@ public class EnemyFlyer : MonoBehaviour
         }
 
         //delete if no health
-        if(health < 0){Die();}
+        if(health < 0){Destroy(gameObject);}
         
         //check if in alert radius
         if(Vector3.Distance(target.transform.position, transform.position) < alertRadius){Activate();}
@@ -160,7 +161,7 @@ public class EnemyFlyer : MonoBehaviour
             if(fbTimer < 0){
                 fbTimer = Random.Range(fbTimerFloor, fbTimerCeil);
                 Fireball();
-
+                ac.clip = batSound;
             }
             else if(sr.sprite == defaultFlyer || sr.sprite == flyerFlap){
                 fbTimer -= Time.deltaTime;
@@ -199,11 +200,5 @@ public class EnemyFlyer : MonoBehaviour
         //throw fireball at player
         Fireball fb = Instantiate(fbPrefab, fbEjector.position, transform.rotation);
         fb.Init(target); 
-    }
-    public void Die() {
-        for (int i = 0; i < expDrop; i++){
-        Instantiate(expOrb, fbEjector.position, transform.rotation);
-        Destroy(gameObject);
-        }
     }
 }

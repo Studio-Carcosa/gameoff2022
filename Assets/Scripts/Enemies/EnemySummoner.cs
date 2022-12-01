@@ -63,6 +63,10 @@ public class EnemySummoner : MonoBehaviour
     [System.NonSerialized]
     public SpriteRenderer sr;
 
+    private AudioSource ac;
+    public AudioClip death;
+    public AudioClip sumSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -138,6 +142,7 @@ public class EnemySummoner : MonoBehaviour
         if(summoning && alerted){
             if(!summoned){
                 Summon();
+                ac.clip = sumSound;
                 summoned = true;
                 sr.sprite = summoningSummoner;
             }
@@ -156,7 +161,10 @@ public class EnemySummoner : MonoBehaviour
         }
 
         //delete if no health
-        if(health < 0){Destroy(gameObject);}
+        if(health < 0){
+            Destroy(gameObject);
+            ac.clip = death;
+            }
         
         //check if in alert radius
         if(Vector3.Distance(target.transform.position, transform.position) < alertRadius && !alerted){Activate();}

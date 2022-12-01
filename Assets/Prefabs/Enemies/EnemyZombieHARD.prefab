@@ -138,6 +138,7 @@ MonoBehaviour:
   att: {fileID: 1024618735127368363, guid: 88db7b09ad28f17adba4c2d10c0f7194, type: 3}
   expDrop: 1
   expOrb: {fileID: 760061830415264055, guid: bd6949f751c414489916e89effb95403, type: 3}
+  death: {fileID: 8300000, guid: af95258cf051e5031b9b9bb6f79e0c9c, type: 3}
 --- !u!54 &2280447977595595249
 Rigidbody:
   m_ObjectHideFlags: 0

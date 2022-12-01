@@ -205,6 +205,8 @@ MonoBehaviour:
   defaultSummoner: {fileID: 21300000, guid: 6f50ea923bb939b02b506c9bfbe50db8, type: 3}
   alertedSummoner: {fileID: 21300000, guid: 68b7802d77c21d54aa851bcc522cd95c, type: 3}
   summoningSummoner: {fileID: 21300000, guid: b5548d4532966a89596049ed88b7335f, type: 3}
+  death: {fileID: 8300000, guid: 138c40f7b1ee3bf59a7a332b47ab6385, type: 3}
+  sumSound: {fileID: 8300000, guid: 7601c65847e14600ba774de4f3c1e0a9, type: 3}
 --- !u!114 &-5576654781637211632
 MonoBehaviour:
   m_ObjectHideFlags: 0
