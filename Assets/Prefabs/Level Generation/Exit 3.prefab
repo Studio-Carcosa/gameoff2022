@@ -1055,7 +1055,7 @@ GameObject:
   - component: {fileID: 2481318098624080662}
   - component: {fileID: 6186180891588218085}
   m_Layer: 0
-  m_Name: Exit
+  m_Name: Exit 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1574,7 +1574,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 26586834317868888, guid: 47b04353a31a04407947e464b2b28566, type: 3}
       propertyPath: scene
-      value: Graveyard 2
+      value: Graveyard 4
       objectReference: {fileID: 0}
     - target: {fileID: 4748949134970549031, guid: 47b04353a31a04407947e464b2b28566, type: 3}
       propertyPath: m_Name
