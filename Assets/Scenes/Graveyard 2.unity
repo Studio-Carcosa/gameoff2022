@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9719088489979429780e5897f0ce5e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathQuote: {fileID: 0}
   quotes:
   - {fileID: 3462261173051457089, guid: 4618b26a5628b4125bae3beec0565a34, type: 3}
   - {fileID: 3462261173051457089, guid: b549069944e374f778931af0cad99d04, type: 3}
