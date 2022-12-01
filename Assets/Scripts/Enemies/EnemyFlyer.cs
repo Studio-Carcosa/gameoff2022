@@ -50,7 +50,9 @@ public class EnemyFlyer : MonoBehaviour
     public float fbTimerFloor = 5f;
     public float fbTimerCeil = 10f;
     private float fbTimer;
-
+    
+    public int expDrop = 2;
+    public GameObject expOrb;
 
 
     // Start is called before the first frame update
@@ -147,7 +149,7 @@ public class EnemyFlyer : MonoBehaviour
         }
 
         //delete if no health
-        if(health < 0){Destroy(gameObject);}
+        if(health < 0){Die();}
         
         //check if in alert radius
         if(Vector3.Distance(target.transform.position, transform.position) < alertRadius){Activate();}
@@ -197,5 +199,11 @@ public class EnemyFlyer : MonoBehaviour
         //throw fireball at player
         Fireball fb = Instantiate(fbPrefab, fbEjector.position, transform.rotation);
         fb.Init(target); 
+    }
+    public void Die() {
+        for (int i = 0; i < expDrop; i++){
+        Instantiate(expOrb, fbEjector.position, transform.rotation);
+        Destroy(gameObject);
+        }
     }
 }

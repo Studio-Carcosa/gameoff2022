@@ -24,6 +24,8 @@ public class BasicZombie : MonoBehaviour
     private Rigidbody rb;
     private bool alerted;
     private bool canAttack = false;
+    public int expDrop = 1;
+    public GameObject expOrb;
 
 
 
@@ -48,7 +50,7 @@ public class BasicZombie : MonoBehaviour
         transform.forward = -transform.forward;
 
         //delete if no health
-        if(health < 0){Destroy(gameObject);}
+        if(health <= 0){Die();}
         
         //check if in alert radius
         if(Vector3.Distance(target.transform.position, transform.position) < alertDist){Activate();}
@@ -94,5 +96,12 @@ public class BasicZombie : MonoBehaviour
     //enable enemy
     public void Activate(){
         alerted = true;
+    }
+
+    public void Die() {
+        for (int i = 0; i < expDrop; i++){
+        Instantiate(expOrb, gameObject.transform);
+        Destroy(gameObject);
+        }
     }
 }

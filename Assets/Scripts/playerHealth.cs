@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
 
 
 
-    private int curHealth;
+    public int curHealth;
     private float curInvulnTime;
     // Start is called before the first frame update
     void Start()
@@ -39,6 +39,14 @@ public class PlayerHealth : MonoBehaviour
     public void FullHeal() {
         curHealth = maxHealth;
         Debug.Log("Full Heal, health is now " +curHealth);
+    }
+    
+    public void Heal(int amount) {
+        curHealth += amount;
+            if (curHealth > maxHealth) {
+            curHealth = maxHealth;
+        }
+        Debug.Log("Partial Heal, health is now " + curHealth);
     }
 
     bool canHurt(){

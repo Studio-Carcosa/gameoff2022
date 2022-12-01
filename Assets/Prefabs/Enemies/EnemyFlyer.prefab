@@ -115,6 +115,8 @@ MonoBehaviour:
   sr: {fileID: 2716449534218324701}
   fbTimerFloor: 5
   fbTimerCeil: 10
+  expDrop: 2
+  expOrb: {fileID: 760061830415264055, guid: bd6949f751c414489916e89effb95403, type: 3}
 --- !u!54 &2716449534218324768
 Rigidbody:
   m_ObjectHideFlags: 0
