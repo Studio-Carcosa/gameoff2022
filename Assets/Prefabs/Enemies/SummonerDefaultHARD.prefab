@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 5481323251330848209}
   - component: {fileID: -5576654781637211632}
   m_Layer: 0
-  m_Name: SummonerDefault
+  m_Name: SummonerDefaultHARD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,14 +193,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae63e6a058a9e4f83abe9482af4a4d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
-  moveSpeed: 15
+  health: 500
+  moveSpeed: 24
   flyerSpawnRadius: 12
-  flyerMinSpawn: 3
-  flyerMaxSpawn: 7
+  flyerMinSpawn: 6
+  flyerMaxSpawn: 16
   flyer: {fileID: 2716449534218324700, guid: 35c5c6045cc32fd2b9da66cdabd1506f, type: 3}
   zomb: {fileID: 2280447977595595248, guid: d9a635b835ea075c383d5f37af3b8fcf, type: 3}
-  zombMaxSpawns: 7
+  zombMaxSpawns: 15
   alertRadius: 65
   defaultSummoner: {fileID: 21300000, guid: 1d70d34802f8d4768acb4d98f57e6bb2, type: 3}
   defaultSummonerStep: {fileID: 21300000, guid: f4d51ee3af28230a2b45510804c8e91a, type: 3}

@@ -680,8 +680,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   enemyList:
-  - {fileID: 6655789846930054427, guid: f60877bdca2354d8f992d89653fccb5e, type: 3}
+  - {fileID: -4810803660289703886, guid: 8e9ab35b0761fe7b4b790ec2946ef5e4, type: 3}
   spawns: {fileID: 637800888753305392}
+  spawnAmountLow: 0
+  spawnAmountHigh: 2
 --- !u!1 &7557090495401848996
 GameObject:
   m_ObjectHideFlags: 0

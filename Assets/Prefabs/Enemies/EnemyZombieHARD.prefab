@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2280447977595595249}
   - component: {fileID: -4810803660289703886}
   m_Layer: 0
-  m_Name: EnemyZombie
+  m_Name: EnemyZombieHARD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27c0bc1f89d81a0c85d1b3f0f4d43ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  health: 35
+  moveSpeed: 5
+  health: 10
   alertDist: 15
   att: {fileID: 1024618735127368363, guid: 88db7b09ad28f17adba4c2d10c0f7194, type: 3}
   expDrop: 1

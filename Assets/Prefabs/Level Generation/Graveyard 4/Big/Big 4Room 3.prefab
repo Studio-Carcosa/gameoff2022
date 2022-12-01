@@ -728,7 +728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   enemyList:
-  - {fileID: -4810803660289703886, guid: d9a635b835ea075c383d5f37af3b8fcf, type: 3}
+  - {fileID: -4810803660289703886, guid: 8e9ab35b0761fe7b4b790ec2946ef5e4, type: 3}
   spawns: {fileID: 8745232360415586772}
   spawnAmountLow: 3
   spawnAmountHigh: 16
@@ -746,7 +746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   enemyList:
-  - {fileID: -5576654781637211632, guid: b6f3fb4750bf98819990b58455013148, type: 3}
+  - {fileID: -5576654781637211632, guid: 55353c5ff9df2bc8caebb8284034497f, type: 3}
   spawns: {fileID: 8745232360415586772}
   spawnAmountLow: 1
   spawnAmountHigh: 2
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   enemyList:
-  - {fileID: -1155171647528049852, guid: 35c5c6045cc32fd2b9da66cdabd1506f, type: 3}
+  - {fileID: -1155171647528049852, guid: b4adc923e738e4d759d1766a982ec081, type: 3}
   spawns: {fileID: 8745232360415586772}
   spawnAmountLow: 4
   spawnAmountHigh: 18

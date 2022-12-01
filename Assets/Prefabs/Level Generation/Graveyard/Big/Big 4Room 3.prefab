@@ -727,7 +727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   enemyList:
-  - {fileID: 6655789846930054427, guid: f60877bdca2354d8f992d89653fccb5e, type: 3}
+  - {fileID: -4810803660289703886, guid: d9a635b835ea075c383d5f37af3b8fcf, type: 3}
   spawns: {fileID: 8745232360415586772}
   spawnAmountLow: 0
   spawnAmountHigh: 9

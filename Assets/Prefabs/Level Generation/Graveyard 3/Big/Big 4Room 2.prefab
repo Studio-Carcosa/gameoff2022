@@ -709,6 +709,7 @@ GameObject:
   - component: {fileID: 4319858644456193527}
   - component: {fileID: 8820359134024403690}
   - component: {fileID: -2960925756735714468}
+  - component: {fileID: -694222384578206926}
   m_Layer: 0
   m_Name: Big 4Room 2
   m_TagString: Untagged
@@ -784,7 +785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   enemyList:
-  - {fileID: 6655789846930054427, guid: f60877bdca2354d8f992d89653fccb5e, type: 3}
+  - {fileID: -4810803660289703886, guid: 8e9ab35b0761fe7b4b790ec2946ef5e4, type: 3}
   spawns: {fileID: 9132432323564911699}
   spawnAmountLow: 0
   spawnAmountHigh: 8
@@ -802,10 +803,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   enemyList:
-  - {fileID: -5576654781637211632, guid: b6f3fb4750bf98819990b58455013148, type: 3}
+  - {fileID: -5576654781637211632, guid: 55353c5ff9df2bc8caebb8284034497f, type: 3}
   spawns: {fileID: 9132432323564911699}
   spawnAmountLow: 1
   spawnAmountHigh: 2
+--- !u!114 &-694222384578206926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7510731803611000723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991ce00061a6349db864e46d62ae0e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  enemyList:
+  - {fileID: -1155171647528049852, guid: b4adc923e738e4d759d1766a982ec081, type: 3}
+  spawns: {fileID: 9132432323564911699}
+  spawnAmountLow: 2
+  spawnAmountHigh: 8
 --- !u!1 &7540413289531376416
 GameObject:
   m_ObjectHideFlags: 0
