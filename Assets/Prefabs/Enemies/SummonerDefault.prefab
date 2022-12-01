@@ -141,7 +141,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1d70d34802f8d4768acb4d98f57e6bb2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6f50ea923bb939b02b506c9bfbe50db8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -179,8 +179,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 4.5, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.5421448, y: 6.0700965, z: 0.2}
+  m_Center: {x: -0.03794861, y: -1.8494117, z: 0}
 --- !u!114 &5481323251330848209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,11 +202,9 @@ MonoBehaviour:
   zomb: {fileID: 2280447977595595248, guid: d9a635b835ea075c383d5f37af3b8fcf, type: 3}
   zombMaxSpawns: 7
   alertRadius: 65
-  defaultSummoner: {fileID: 21300000, guid: 1d70d34802f8d4768acb4d98f57e6bb2, type: 3}
-  defaultSummonerStep: {fileID: 21300000, guid: f4d51ee3af28230a2b45510804c8e91a, type: 3}
-  fleeingSummoner: {fileID: 21300000, guid: 8f3fdad33f985f74893d6775995d3d43, type: 3}
-  fleeingSummonerStep: {fileID: 21300000, guid: 8c2d3b66cf572ed8b8d99ec62d2fc36c, type: 3}
-  summoningSummoner: {fileID: 21300000, guid: 916b1a59503d0b1a581b82b8ca0d18ed, type: 3}
+  defaultSummoner: {fileID: 21300000, guid: 6f50ea923bb939b02b506c9bfbe50db8, type: 3}
+  alertedSummoner: {fileID: 21300000, guid: 68b7802d77c21d54aa851bcc522cd95c, type: 3}
+  summoningSummoner: {fileID: 21300000, guid: b5548d4532966a89596049ed88b7335f, type: 3}
 --- !u!114 &-5576654781637211632
 MonoBehaviour:
   m_ObjectHideFlags: 0
