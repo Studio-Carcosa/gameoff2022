@@ -47,6 +47,6 @@ public class GunQuoteManager : MonoBehaviour
 
     void DieQuote() {
         UItext.fontSize = 40;
-        UItext.text = deathQuote;
+        UItext.text = deathQuote.quote;
     }
 }

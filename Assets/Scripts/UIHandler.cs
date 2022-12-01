@@ -17,6 +17,6 @@ public class UIHandler : MonoBehaviour
     }
     public void Update()
     {
-       counterText.text =  health.curHealth;
+       counterText.text =  health.curHealth.ToString();
     }
 }
