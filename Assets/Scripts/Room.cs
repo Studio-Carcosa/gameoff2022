@@ -13,6 +13,8 @@ public class Room : MonoBehaviour
     private Bounds bounds;
     private bool isClear = false;
     public SpawnPoints spawns;
+    public int spawnAmountLow = 0;
+    public int spawnAmountHigh = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +41,7 @@ public class Room : MonoBehaviour
 
     void SpawnEnemies() {
         foreach (Enemy enemy in enemyList){
-            int amountSpawn = Random.Range(enemy.spawnAmountLow, enemy.spawnAmountHigh);
+            int amountSpawn = Random.Range(spawnAmountLow, spawnAmountHigh);
             //Debug.Log("Amount spawned in this room is " + amountSpawn);
             for(int i = amountSpawn; i > 0; i--) {
                 //Debug.Log("First for done");

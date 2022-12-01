@@ -117,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183318597207451193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.71, z: 44.6}
+  m_LocalPosition: {x: -17.3, y: 4.71, z: 44.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -272,7 +272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3382792504901874709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.2, y: 0, z: 19.5}
+  m_LocalPosition: {x: 34.5, y: 0, z: 19.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -348,7 +348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4035204261063275836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.7, y: 0, z: 11.6}
+  m_LocalPosition: {x: 33.7, y: 0, z: 18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -623,7 +623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7182343128699732287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 45.1}
+  m_LocalPosition: {x: 23.6, y: 0, z: 54.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -708,6 +708,7 @@ GameObject:
   - component: {fileID: 2481318098624080662}
   - component: {fileID: 4319858644456193527}
   - component: {fileID: 8820359134024403690}
+  - component: {fileID: -2960925756735714468}
   m_Layer: 0
   m_Name: Big 4Room 2
   m_TagString: Untagged
@@ -785,6 +786,26 @@ MonoBehaviour:
   enemyList:
   - {fileID: 6655789846930054427, guid: f60877bdca2354d8f992d89653fccb5e, type: 3}
   spawns: {fileID: 9132432323564911699}
+  spawnAmountLow: 0
+  spawnAmountHigh: 8
+--- !u!114 &-2960925756735714468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7510731803611000723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991ce00061a6349db864e46d62ae0e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  enemyList:
+  - {fileID: -5576654781637211632, guid: b6f3fb4750bf98819990b58455013148, type: 3}
+  spawns: {fileID: 9132432323564911699}
+  spawnAmountLow: 1
+  spawnAmountHigh: 2
 --- !u!1 &7540413289531376416
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,7 +864,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8041483284531650699}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.93, y: 0, z: 43.4}
+  m_LocalPosition: {x: 24.93, y: 0, z: 54.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -905,7 +926,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8249874754034165837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 19.5}
+  m_LocalPosition: {x: 0, y: 1.4, z: 34.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

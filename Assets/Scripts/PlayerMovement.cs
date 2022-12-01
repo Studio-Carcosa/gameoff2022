@@ -6,6 +6,7 @@ using TMPro;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
+    
     public float moveSpeed = 15f;
     public float maxSpeed = 20f;
     public float sprintMulti = 2f;
@@ -39,6 +40,10 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody rb;
+
+    private void Awake(){
+    DontDestroyOnLoad(this.gameObject);
+    }
 
     private void Start()
     {

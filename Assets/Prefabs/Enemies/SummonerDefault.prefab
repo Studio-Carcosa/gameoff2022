@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 5481323251330848215}
   - component: {fileID: 5481323251330848214}
   - component: {fileID: 5481323251330848209}
+  - component: {fileID: -5576654781637211632}
   m_Layer: 0
   m_Name: SummonerDefault
   m_TagString: Untagged
@@ -206,3 +207,18 @@ MonoBehaviour:
   fleeingSummoner: {fileID: 21300000, guid: 8f3fdad33f985f74893d6775995d3d43, type: 3}
   fleeingSummonerStep: {fileID: 21300000, guid: 8c2d3b66cf572ed8b8d99ec62d2fc36c, type: 3}
   summoningSummoner: {fileID: 21300000, guid: 916b1a59503d0b1a581b82b8ca0d18ed, type: 3}
+--- !u!114 &-5576654781637211632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5481323251330848208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d8527d97f80e4a659c5e8c395f57b47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulty: 1
+  spawnAmountLow: 3
+  spawnAmountHigh: 10

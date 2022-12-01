@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class PerkUI : MonoBehaviour
 {
+    private static PerkUI _instance;
+    public static PerkUI Instance {get {return _instance;}}
 
     public List<PerkButton> perkButtons;
-
-    void Awake(){
+        private void Awake(){
+        if(_instance != null && _instance != this){
+            Destroy(this.gameObject);
+        }else{
+            _instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
         perkButtons = new List<PerkButton>(GetComponentsInChildren<PerkButton>());
-    }
+        }
 
     // Start is called before the first frame update
     void Start()

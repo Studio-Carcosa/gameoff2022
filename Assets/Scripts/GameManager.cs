@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public PerkUI perkUI;
     public Weapon weapon;
     public int gameLevel = 1; //The level the game is currently at
+    public bool bigShot = false;
 
 
     private CameraController playerCameraController;

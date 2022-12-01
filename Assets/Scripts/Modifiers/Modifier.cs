@@ -60,6 +60,10 @@ public abstract class Modifier
     public static Modifier RandModifier(){
         switch(RandomEnumValue<ModifierType>()){
             case ModifierType.BIGGER_BULLETS:
+                if (GameManager.Instance.bigShot) {
+                    return RandModifier(); // lol
+                }
+                GameManager.Instance.bigShot = true;
                 return new BiggerBulletsModifier();
             case ModifierType.SHOT_AMOUNT:
                 return new ShotAmountModifier();

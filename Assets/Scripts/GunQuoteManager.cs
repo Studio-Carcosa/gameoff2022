@@ -25,7 +25,7 @@ public class GunQuoteManager : MonoBehaviour
     void Update()
     {
         curTimer = curTimer + Time.deltaTime;
-        Debug.Log(curTimer);
+//        Debug.Log(curTimer);
         if (Input.GetKey(talkKey) & curTimer >= quoteDelay) {
             PlayQuote();
             curTimer = 0;
