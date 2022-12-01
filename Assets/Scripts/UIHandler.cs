@@ -9,6 +9,9 @@ public class UIHandler : MonoBehaviour
     public Weapon weapon;
     public Text counterText;
     
+    private void Awake(){
+    DontDestroyOnLoad(this.gameObject);
+    }
     public void Start() {
         weapon = GameObject.Find("Shotgun").GetComponent<Weapon>();
     }

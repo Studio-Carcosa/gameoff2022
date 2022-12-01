@@ -755,6 +755,7 @@ MonoBehaviour:
   - big
   CreatesTags:
   - room
+  - exitcorridor
   Exits: {fileID: 3972176487542108480}
   Bounds: {fileID: 7097729182670136360}
   DeadEndChance: 1

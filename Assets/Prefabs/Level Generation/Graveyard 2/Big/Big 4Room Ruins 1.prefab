@@ -870,7 +870,7 @@ GameObject:
   - component: {fileID: -537245668023936230}
   - component: {fileID: 2004440654600324803}
   m_Layer: 0
-  m_Name: Big 4Room Ruins
+  m_Name: Big 4Room Ruins 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -924,6 +924,7 @@ MonoBehaviour:
   - big
   CreatesTags:
   - room
+  - exitcorridor
   Exits: {fileID: 3972176487542108480}
   Bounds: {fileID: 7097729182670136360}
   DeadEndChance: 1

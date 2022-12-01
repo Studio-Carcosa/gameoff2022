@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    public string scene;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class SceneChanger : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Player") {
-            SceneManager.LoadScene("Graveyard 2");
+            SceneManager.LoadScene(scene);
         }
     }
 }
