@@ -117,6 +117,10 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
     }
 
+    public void Spawn(Transform newSpawn) {
+        gameObject.transform.position = newSpawn.position;
+    }
+
     public void recoilKnockback(float knockback) {
         rb.AddForce(transform.forward * -knockback, ForceMode.Impulse);
     }

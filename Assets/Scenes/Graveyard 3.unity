@@ -578,7 +578,7 @@ PrefabInstance:
     - target: {fileID: 1202688319578141858, guid: fbda79e3aa04a42f99a6fbab5fa83b03, type: 3}
       propertyPath: Sections.Array.data[5]
       value: 
-      objectReference: {fileID: 2481318098624080662, guid: eec8565f82c3c430e8fe84e4a5fda96f, type: 3}
+      objectReference: {fileID: 2481318098624080662, guid: bad9b49aefd2c4aa09ff2c9643d441fb, type: 3}
     - target: {fileID: 1202688319578141858, guid: fbda79e3aa04a42f99a6fbab5fa83b03, type: 3}
       propertyPath: InitialSectionTags.Array.data[0]
       value: starter
